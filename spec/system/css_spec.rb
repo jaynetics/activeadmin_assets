@@ -2,6 +2,7 @@
 
 describe ActiveAdminAssets, 'CSS' do
   let(:user) { User.create!(id: 1, first_name: 'Stable', last_name: 'String') }
+  before { prevent_fluctuating_version_text }
 
   it 'has dashboard css' do
     visit admin_root_path
@@ -34,16 +35,15 @@ describe ActiveAdminAssets, 'CSS' do
       features: [{ "name": "prefers-color-scheme", "value": "light" }],
     )
 
-    # remove fluctuating version number at bottom of page
-    expect(page).to have_content('Powered by')
-    page.execute_script <<~JS
-      var xpath = "//div[contains(text(), 'Powered by')]";
-      var node = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-      node.remove();
-    JS
-    expect(page).not_to have_content('Powered by')
+    sleep 0.1
 
     # run capybara-screenshot-diff
     screenshot(name)
+  end
+
+  def prevent_fluctuating_version_text
+    allow(I18n).to receive(:t).and_wrap_original do |m, *args, **kw, &blk|
+      args[0] == 'active_admin.powered_by' ? 'test' : m.call(*args, **kw, &blk)
+    end
   end
 end

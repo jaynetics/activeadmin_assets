@@ -10,4 +10,4 @@
 .rspec_status
 Gemfile.lock
 spec/dummy
-spec/screenshots/*diff.png
+spec/screenshots/**/*diff.png
