@@ -1,4 +1,4 @@
-return unless ARGV.grep(/spec\.rb/).empty? # skip if running individual specs
+return unless ENV['CI'] || ARGV.grep(/spec\.rb/).empty? # skip if running individual specs
 
 require 'simplecov'
 require 'simplecov-cobertura'
