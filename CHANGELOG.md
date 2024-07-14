@@ -1,5 +1,9 @@
 ## [Unreleased]
 
-## [1.0.0] - 2024-07-13
+## [1.0.1] - 2024-07-14
 
-- Initial release
+- Actually include assets in gem 😅
+
+## [1.0.0] - 2024-07-14
+
+- Initial release (yanked)

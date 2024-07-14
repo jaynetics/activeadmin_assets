@@ -25,6 +25,7 @@ Gem::Specification.new do |spec|
       (f == gemspec) || f.start_with?(*%w[bin/ spec/ tasks/ .git .github Gemfile])
     end
   end
+  spec.files += Dir['lib/activeadmin_assets/assets/**/*.{br,css,gz,js,map}']
   spec.require_paths = ['lib']
 
   spec.add_dependency 'activeadmin', '>= 4.0.0.beta7', '< 5.0.0'
