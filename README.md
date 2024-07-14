@@ -1,6 +1,6 @@
 [![Gem Version](https://badge.fury.io/rb/activeadmin_assets.svg)](http://badge.fury.io/rb/activeadmin_assets)
-[![Build Status](https://github.com/jaynetics/activeadmin_assets/workflows/main/badge.svg)](https://github.com/jaynetics/activeadmin_assets/actions)
-[![Coverage](https://codecov.io/gh/jaynetics/activeadmin_assets/branch/main/graph/badge.svg?token=oY7gcWNbIN)](https://codecov.io/gh/jaynetics/activeadmin_assets)
+[![Build Status](https://github.com/jaynetics/activeadmin_assets/workflows/main.yml/badge.svg)](https://github.com/jaynetics/activeadmin_assets/actions)
+[![Coverage](https://codecov.io/github/jaynetics/activeadmin_assets/graph/badge.svg?token=7fCHVrCeFv)](https://codecov.io/github/jaynetics/activeadmin_assets)
 
 # ActiveAdminAssets
 

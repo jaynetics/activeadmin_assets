@@ -31,9 +31,11 @@ jobs:
         bundler-cache: true
     - name: Run the default task
       run: bundle exec rake
-    - name: Upload Screenshots
+    - uses: codecov/codecov-action@v4.0.1
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
+    - uses: actions/upload-artifact@v4
       if: always()
-      uses: actions/upload-artifact@v4
       with:
         name: screenshots-${{ matrix.ruby }}
         retention-days: 1
