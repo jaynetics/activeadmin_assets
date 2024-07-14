@@ -1,0 +1,13 @@
+/.bundle/
+/.yardoc
+/_yardoc/
+/coverage/
+/doc/
+/pkg/
+/spec/reports/
+/tmp/
+/lib/activeadmin_assets/assets
+.rspec_status
+Gemfile.lock
+spec/dummy
+spec/screenshots/*diff.png
