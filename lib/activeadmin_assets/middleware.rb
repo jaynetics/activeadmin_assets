@@ -13,7 +13,11 @@ module ActiveAdminAssets
     def serve(path)
       return unless asset_path = path[@regexp, 1]
 
-      static_path = File.join(__dir__, 'assets', "#{asset_path}.gz")
+      static_path = File.join(
+        __dir__, '..', 'assets',
+        asset_path.end_with?('.css') ? 'stylesheets' : 'javascripts',
+        "#{asset_path}.gz"
+      )
       send_data(static_path)
     end
 

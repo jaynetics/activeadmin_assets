@@ -6,7 +6,7 @@
 /pkg/
 /spec/reports/
 /tmp/
-/lib/activeadmin_assets/assets
+/lib/assets
 .rspec_status
 Gemfile.lock
 spec/dummy
