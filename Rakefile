@@ -7,7 +7,7 @@ Dir['tasks/**/*.rake'].each { |file| load(file) }
 
 RSpec::Core::RakeTask.new(:spec)
 
-task default: [:css, :js, :generate_spec_app, :spec]
+task default: %i[build_assets generate_spec_app spec]
 
 # ensure fresh assets are included when packaging the gem
-task build: %i[css js]
+Rake::Task[:build].enhance(%i[build_assets])
