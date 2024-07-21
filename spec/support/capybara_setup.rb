@@ -26,5 +26,5 @@ Capybara::Screenshot::Diff.tolerance = 0.01
 
 RSpec.configure do |config|
   config.before(:each, type: :system) { driven_by :customized_chrome }
-  config.include Capybara::Screenshot::Diff
+  config.include ::CapybaraScreenshotDiff::DSL
 end

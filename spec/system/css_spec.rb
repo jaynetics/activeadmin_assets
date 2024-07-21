@@ -38,7 +38,7 @@ describe ActiveAdminAssets, 'CSS' do
     sleep 0.1
 
     # run capybara-screenshot-diff
-    screenshot(name)
+    expect(page).to match_screenshot(name)
   end
 
   def prevent_fluctuating_version_text
