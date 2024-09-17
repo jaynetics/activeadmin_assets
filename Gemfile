@@ -6,7 +6,7 @@ source "https://rubygems.org"
 gemspec
 
 group :development, :test do
-  gem 'activeadmin', '~> 4.0.0.beta7'
+  gem 'activeadmin', '~> 4.0.0.beta12'
   gem 'benchmark-ips'
   gem 'capybara', '~> 3.0'
   gem 'capybara-screenshot-diff', git: 'https://github.com/donv/capybara-screenshot-diff', require: 'capybara_screenshot_diff/rspec'

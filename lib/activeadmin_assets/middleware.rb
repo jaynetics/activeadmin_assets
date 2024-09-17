@@ -28,6 +28,9 @@ module ActiveAdminAssets
         'content-type'     => path['.css'] ? 'text/css' : 'text/javascript',
       }
       [200, headers, [data]]
+    rescue Errno::ENOENT => e
+      Rails.logger.warn("ActiveAdminAssets::Middleware: #{e.class} #{e.message}")
+      nil
     end
   end
 end

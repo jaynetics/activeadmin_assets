@@ -26,8 +26,11 @@ describe ActiveAdminAssets, 'CSS' do
   end
 
   def expect_stable_screenshot(name)
-    # standardize resolution / window size
-    page.current_window.resize_to(1400, 600)
+    # standardize resolution / viewport size (1400x600)
+    required_window_size = execute_script <<~JS
+      return [outerWidth - innerWidth + 1400, outerHeight - innerHeight + 600];
+    JS
+    page.current_window.resize_to(*required_window_size)
 
     # standardize light/dark mode
     $selenium_driver.browser.execute_cdp(
