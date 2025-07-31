@@ -14,6 +14,7 @@ group :development, :test do
   gem 'csv' # needed for activeadmin, standalone on Ruby >= 3.4
   gem 'debug'
   gem 'puma', '~> 6.0'
+  gem 'rails', '~> 8.0'
   gem 'rake', '~> 13.2'
   gem 'rspec-rails', '~> 6.0'
   gem 'ruby-vips'

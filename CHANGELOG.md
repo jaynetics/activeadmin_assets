@@ -1,5 +1,7 @@
 ## [Unreleased]
 
+- Omit SRI checksums to stay compatible with ActiveAdmin updates
+
 ## [1.0.2] - 2024-09-17
 
 - Don't raise if inexistent asset is accessed, just log a warning
