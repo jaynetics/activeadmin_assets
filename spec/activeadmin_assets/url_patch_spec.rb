@@ -27,6 +27,39 @@ describe ActiveAdminAssets::URLPatch do
     ActiveAdmin.importmap.packages.delete('my_own_thing')
   end
 
+  it 'removes integrity attributes from own entries in importmap and preload links' do
+    renderer = Class.new do
+      def javascript_importmap_tags(...)
+        <<~HTML
+          <script type="importmap">{
+            "imports": {"#{ActiveAdminAssets.path}x": "x"},
+            "integrity": {"#{ActiveAdminAssets.path}x": "sha384-x"}
+          }</script>
+          <link rel="modulepreload" href="#{ActiveAdminAssets.path}x.js" integrity="sha384-x">
+        HTML
+      end
+    end
+    renderer.prepend(described_class)
+    expect(renderer.new.javascript_importmap_tags).not_to include('sha384')
+  end
+
+  it 'does not remove integrity attributes from other entries in importmap and preload links' do
+    renderer = Class.new do
+      def javascript_importmap_tags(...)
+        <<~HTML
+          <script type="importmap">{"imports": {"x": "x"}, "integrity": {"x": "sha384-x"}}</script>
+          <link rel="modulepreload" href="/x.js" integrity="sha384-x">
+        HTML
+      end
+    end
+
+    orig_result = renderer.new.javascript_importmap_tags
+    expect(orig_result).to include('sha384-x')
+
+    renderer.prepend(described_class)
+    expect(renderer.new.javascript_importmap_tags).to eq(orig_result)
+  end
+
   def render(&block)
     context = Class.new(ActionController::Base)
     context.helper(described_class)
