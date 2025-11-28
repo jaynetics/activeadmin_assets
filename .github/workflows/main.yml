@@ -29,6 +29,12 @@ jobs:
       with:
         ruby-version: ${{ matrix.ruby }}
         bundler-cache: true
+    - name: Set up Node.js
+      uses: actions/setup-node@v6
+      with:
+        node-version: '24'
+    - name: Install JS dependencies
+      run: npm install
     - name: Run the default task
       run: bundle exec rake
     - uses: codecov/codecov-action@v4.0.1

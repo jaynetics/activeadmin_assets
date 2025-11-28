@@ -1,5 +1,9 @@
 ## [Unreleased]
 
+## [1.2.0] - 2025-11-28
+
+- Support ActiveAdmin 4.0.0.beta19
+
 ## [1.1.0] - 2025-08-09
 
 - Support ActiveAdmin 4.0.0.beta16

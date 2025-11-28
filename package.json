@@ -1,0 +1,7 @@
+{
+  "name": "activeadmin_assets",
+  "dependencies": {
+    "@activeadmin/activeadmin": "4.0.0-beta19",
+    "tailwindcss": "^4.1.17"
+  }
+}

@@ -3,11 +3,15 @@
 /_yardoc/
 /coverage/
 /doc/
+/node_modules/
 /pkg/
 /spec/reports/
 /tmp/
 /lib/activeadmin_assets/assets
 .rspec_status
 Gemfile.lock
+npm-debug.log
+package-lock.json
 spec/dummy
 spec/screenshots/**/*diff.png
+yarn.lock
