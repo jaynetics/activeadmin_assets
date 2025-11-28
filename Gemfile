@@ -6,7 +6,7 @@ source "https://rubygems.org"
 gemspec
 
 group :development, :test do
-  gem 'activeadmin', '~> 4.0.0.beta12'
+  gem 'activeadmin', '~> 4.0.0.beta19'
   gem 'benchmark-ips'
   gem 'capybara', '~> 3.0'
   gem 'capybara-screenshot-diff', git: 'https://github.com/donv/capybara-screenshot-diff', require: 'capybara_screenshot_diff/rspec'
@@ -20,5 +20,4 @@ group :development, :test do
   gem 'selenium-webdriver', '~> 4.22'
   gem 'simplecov-cobertura', require: false
   gem 'sqlite3', '~> 2.0'
-  gem 'tailwindcss-rails', '~> 2.6', require: false
 end
