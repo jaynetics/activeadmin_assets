@@ -1,7 +1,7 @@
 # template for dummy rails app used in specs
 
 gem 'activeadmin_assets', path: __dir__ + '/../../'
-gem 'activeadmin', '>= 4.0.0.beta19', '< 5.0.0'
+gem 'activeadmin', '>= 4.0.0.beta22', '< 5.0.0'
 gem 'csv'
 
 # https://github.com/activeadmin/activeadmin/pull/7235#issuecomment-1000823435
