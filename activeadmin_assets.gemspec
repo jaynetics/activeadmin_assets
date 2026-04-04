@@ -28,6 +28,6 @@ Gem::Specification.new do |spec|
   spec.files += Dir['lib/activeadmin_assets/assets/**/*.{br,css,gz,js,map}']
   spec.require_paths = ['lib']
 
-  spec.add_dependency 'activeadmin', '>= 4.0.0.beta19', '< 5.0.0'
+  spec.add_dependency 'activeadmin', '>= 4.0.0.beta22', '< 5.0.0'
   spec.add_dependency 'importmap-rails', '>= 2.0.0'
 end
