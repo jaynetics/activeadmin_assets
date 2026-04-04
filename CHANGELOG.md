@@ -1,6 +1,6 @@
 ## [Unreleased]
 
-## [main] - unreleased
+## [1.3.0] - 2026-04-04
 
 - Support ActiveAdmin 4.0.0.beta22
 
