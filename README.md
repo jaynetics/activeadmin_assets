@@ -10,8 +10,6 @@ This gem is for you if you want to be able to run [ActiveAdmin](https://github.c
 - no `sprockets` or `propshaft`
 - no `assets:precompile` or similar build steps
 
-Like the asset gems of old, it includes static copies of all required assets and injects them automatically.
-
 ## Caveats
 
 - This will prevent you from customizing ActiveAdmin's tailwind config, making theming more hacky.
@@ -28,6 +26,14 @@ That's it 😁. If you want, you can configure the path to serve static assets f
 ```ruby
 ActiveAdminAssets.path = '/x/admin-assets' # default: '/active_admin_assets'
 ```
+
+## How it works
+
+Like the asset gems of old, this gem includes static copies of all assets that are required to run ActiveAdmin and injects them automatically.
+
+The assets (CSS and JS) are generated automatically when testing or building the gem - see [./Rakefile](./Rakefile).
+
+To make the assets available for any rails setup, the gem has a railtie which monkey-patches rails' asset path helpers ([`URLPatch`](./lib/activeadmin_assets/url_patch.rb)). This patch changes the CSS and JS paths that are rendered in ActiveAdmin views. The railtie also adds a middleware ([`Middleware`](./lib/activeadmin_assets/middleware.rb)). This middleware detects requests to these custom asset paths and responds to them by serving asset files from the gem.
 
 ## Contributing
 
