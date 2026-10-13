@@ -14,23 +14,29 @@ jobs:
     strategy:
       matrix:
         ruby:
-          - '3.2'
           - '3.4'
+          - '4.0'
 
     steps:
-    - uses: awalsh128/cache-apt-pkgs-action@latest
-      with:
-        packages: libvips libglib2.0-0 libglib2.0-dev libwebp-dev libvips42 libpng-dev
-        version: tests-v1
+    # not using cache for apt packages because of
+    # https://github.com/awalsh128/cache-apt-pkgs-action/issues/158
+    # - uses: awalsh128/cache-apt-pkgs-action@latest
+    #   with:
+    #     packages: libvips libglib2.0-0 libglib2.0-dev libwebp-dev libvips42 libpng-dev
+    #     version: tests-v1
+    - name: Install dependencies for snap_diff-capybara
+      run: apt-get install libvips libglib2.0-0 libglib2.0-dev libwebp-dev libvips42 libpng-dev
+      shell: bash
+
     - uses: nanasess/setup-chromedriver@v2
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v7
     - name: Set up Ruby
       uses: ruby/setup-ruby@v1
       with:
         ruby-version: ${{ matrix.ruby }}
         bundler-cache: true
     - name: Set up Node.js
-      uses: actions/setup-node@v6
+      uses: actions/setup-node@v7
       with:
         node-version: '24'
     - name: Install JS dependencies
