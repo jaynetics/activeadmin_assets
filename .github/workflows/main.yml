@@ -25,7 +25,9 @@ jobs:
     #     packages: libvips libglib2.0-0 libglib2.0-dev libwebp-dev libvips42 libpng-dev
     #     version: tests-v1
     - name: Install dependencies for snap_diff-capybara
-      run: apt-get install libvips libglib2.0-0 libglib2.0-dev libwebp-dev libvips42 libpng-dev
+      run: |
+        sudo apt-get update
+        sudo apt-get -y install libvips libglib2.0-0 libglib2.0-dev libwebp-dev libvips42 libpng-dev
       shell: bash
 
     - uses: nanasess/setup-chromedriver@v2
