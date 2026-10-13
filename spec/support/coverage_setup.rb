@@ -5,7 +5,7 @@ require 'simplecov-cobertura'
 
 SimpleCov.formatter = SimpleCov::Formatter::CoberturaFormatter if ENV['CI']
 SimpleCov.start do
-  add_filter 'spec'
+  skip 'spec'
   enable_coverage :branch
   primary_coverage :branch
 end
