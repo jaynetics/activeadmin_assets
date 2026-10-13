@@ -40,7 +40,7 @@ describe ActiveAdminAssets, 'CSS' do
 
     sleep 0.1
 
-    # run capybara-screenshot-diff
+    # run snap_diff-capybara
     expect(page).to match_screenshot(name)
   end
 

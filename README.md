@@ -39,6 +39,8 @@ To make the assets available for any rails setup, the gem has a railtie which mo
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/jaynetics/activeadmin_assets.
 
+Run `bin/setup` to install Ruby & JS dependencies and `bundle exec rake` to run all tests.
+
 ## License
 
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).

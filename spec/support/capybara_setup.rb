@@ -24,13 +24,13 @@ Capybara.register_driver :customized_chrome do |app|
   $selenium_driver = Capybara::Selenium::Driver.new(app, **{ browser: :chrome, options_key => options })
 end
 
-Capybara::Screenshot.add_os_path = true
-Capybara::Screenshot.save_path = File.expand_path('../screenshots', __dir__)
-Capybara::Screenshot::Diff.driver = :vips
-Capybara::Screenshot::Diff.fail_if_new = ENV['CI']
-Capybara::Screenshot::Diff.tolerance = 0.05
+SnapDiff.configure do |config|
+  config.add_os_path = true
+  config.save_path = File.expand_path('../screenshots', __dir__)
+  config.record = ENV['CI'] ? :none : :once
+  config.tolerance = 0.05
+end
 
 RSpec.configure do |config|
   config.before(:each, type: :system) { driven_by :customized_chrome }
-  config.include ::CapybaraScreenshotDiff::DSL
 end

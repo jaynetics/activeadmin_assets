@@ -1,7 +1,7 @@
 {
   "name": "activeadmin_assets",
   "dependencies": {
-    "@activeadmin/activeadmin": "4.0.0-beta22",
-    "tailwindcss": "^4.2.2"
+    "@activeadmin/activeadmin": "4.0.0-beta23",
+    "tailwindcss": "^4.3.3"
   }
 }

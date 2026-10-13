@@ -5,4 +5,25 @@ set -vx
 
 bundle install
 
+npm install
+
+# install vips for snap_diff-capybara
+if [[ "$(uname -s)" == "Darwin" ]]; then
+  brew install vips
+elif [[ -f /etc/alpine-release ]]; then
+  apk add --no-cache vips
+elif command -v apt-get >/dev/null 2>&1; then
+  sudo apt-get update
+  sudo apt-get install -y libvips-dev
+elif command -v dnf >/dev/null 2>&1; then
+  sudo dnf install -y vips
+elif command -v yum >/dev/null 2>&1; then
+  sudo yum install -y vips
+elif command -v pacman >/dev/null 2>&1; then
+  sudo pacman -S --noconfirm vips
+else
+  echo "Unsupported platform: $(uname -s)" >&2
+  exit 1
+fi
+
 # Do any other automated setup that you need to do here
